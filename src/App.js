@@ -1,11 +1,19 @@
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 import './App.css';
-import PlayingCard from './PlayingCard.jsx';
+import InitialPage from './components/InitialPage.jsx';
+import GamePage from './components/GamePage.jsx';
 
 function App() {
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <>
+      <Route path="/game" element={<GamePage />} />
+      <Route path="/" element={<InitialPage />} />
+    </>
+  ))
+
   return (
-    <div className="App">
-        <PlayingCard card={ {name: "2"}}/>
-    </div>
+    <RouterProvider router={ router } />
   );
 }
 
