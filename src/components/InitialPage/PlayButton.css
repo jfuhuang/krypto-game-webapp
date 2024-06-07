@@ -1,0 +1,17 @@
+.btn-primary {
+    background-color: #FF9B71 !important;
+    color: #000000;
+}
+.btn-primary:hover {
+    background-color: #FFFD82 !important;
+    color: #000000 !important;
+}
+.btn-lg {
+    --bs-btn-padding-y: 1.875rem;
+    --bs-btn-padding-x: 3.75rem;
+    --bs-btn-font-size: 4.5rem;
+}
+
+.text-dark {
+    font-weight: bold;
+}

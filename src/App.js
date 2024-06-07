@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import InitialPage from './components/InitialPage.jsx';
 import GamePage from './components/GamePage.jsx';
