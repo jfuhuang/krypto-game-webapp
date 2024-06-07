@@ -1,8 +1,13 @@
-
+import StartButton from './StartButton/StartButton.jsx';
+import PlayingCard from 'components/PlayingCard.jsx';
+import GameCards from 'components/GameCards.jsx';
+import './GamePage.css';
 function GamePage(){
     return (
-        <div>
-            <h1>Game Page</h1>
+        <div className="GamePage">
+            <StartButton/>
+            <PlayingCard card={{name: "unknown", width: "8.4375rem", height: "12.4375rem"}}/>
+            <GameCards />
         </div>
     )
 }

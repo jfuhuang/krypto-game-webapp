@@ -3,6 +3,8 @@
 function PlayingCard({card}) {
     const imagePath = `./images/cards/Krypto Cards/${card.name}.png`;
     const cardContainerStyle = {
+        height: card.height,
+        width: card.width,
         maxWidth: 200,
         maxHeight: 300,
     }
