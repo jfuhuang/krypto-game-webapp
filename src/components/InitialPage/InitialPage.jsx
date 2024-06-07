@@ -1,6 +1,6 @@
-import Footer from './InitialPage/Footer.jsx'
-import Header from './InitialPage/Header.jsx'
-import PlayButton from './InitialPage/PlayButton.jsx';
+import Footer from './Footer.jsx'
+import Header from './Header/Header.jsx'
+import PlayButton from './PlayButton/PlayButton.jsx';
 
 function InitialPage() {
     return(

@@ -4,7 +4,7 @@ import './PlayButton.css';
 
 function PlayButton() {
     return (
-        <a class="btn btn-primary btn-lg" href="#" role="button">Play</a>
+        <a class="btn btn-primary btn-lg" href="game" role="button">Play</a>
     );
 }
 export default PlayButton;

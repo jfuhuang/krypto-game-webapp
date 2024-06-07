@@ -1,0 +1,10 @@
+h1{
+    color: #FFFD82;
+    text-align: center;
+    text-shadow: 0px 0px 81.8px #a8a631;
+    -webkit-text-stroke: 5px #000;
+    /* font-size: 7.0625rem; */
+}
+.display-1 {
+    font-size: 7.0625rem;
+}
