@@ -29,13 +29,11 @@ function GamePage() {
                 </div>
             </div>
             <div className="PlayingCards m-0 w-100 flex-column align-items-center row">
-                <div className="TargetCard col flex-column align-items-center row">
+                <div className="TargetCard p-0 m-0 col row">
                     <p className="p-0 text-primary text-center display-4">Target</p>
-                    <PlayingCard card={{ name: "unknown", width: "8.4375rem", height: "12.4375rem" }} />
+                    <PlayingCard isInteractive={false} card={{ name: "unknown", width: "8.4375rem", height: "12.4375rem" }} />
                 </div>
-                <div className="col">
                     <GameCards />
-                </div>
             </div>
         </div>
     )

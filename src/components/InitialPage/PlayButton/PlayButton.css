@@ -8,3 +8,8 @@
     background-color: #FFFD82 !important;
     color: black !important;
 }
+
+.custom-btn {
+    padding: 20px 40px; /* Increase padding to make button larger */
+    font-size: 48px; /* Increase font size */
+}
