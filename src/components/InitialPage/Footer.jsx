@@ -5,7 +5,7 @@ function Footer() {
     };
 
     return (
-        <footer style={style}className="text-center w-100 p-0">
+        <footer style={style}className="text-center p-0">
             <p className="h1">Created by Jack Huang</p>
         </footer>
     )

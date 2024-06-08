@@ -1,7 +1,12 @@
 .GamePage {
     display: flex;
-    padding: 3.0625rem 10.1875rem 24rem 9.6875rem;
     flex-direction: column;
     align-items: center;
-    gap: 2.25rem;
+    padding: 0;
+    margin: 0;
+}
+
+.TopContainer {
+    padding: 0;
+    margin: 0;
 }

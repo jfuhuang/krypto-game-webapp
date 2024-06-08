@@ -1,0 +1,14 @@
+p.timer {
+    margin: 0;
+    text-align: center;
+}
+.timer-value {
+    width: 25rem; /* Adjust as needed */
+}
+.text-primary {
+    color: #FFFD82 !important;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+    font-style: normal;
+    line-height: 3.125rem; /* 200% */
+}

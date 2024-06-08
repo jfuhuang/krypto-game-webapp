@@ -9,7 +9,7 @@ function PlayingCard({card}) {
         maxHeight: 300,
     }
     return (
-        <div className="card-container" style={cardContainerStyle}>
+        <div className= {`card-container`} style={cardContainerStyle}>
             <img className="img-fluid" src={imagePath} alt={card.name} />
         </div>
     );

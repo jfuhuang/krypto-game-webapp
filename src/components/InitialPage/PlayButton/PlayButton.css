@@ -1,4 +1,4 @@
-.btn-primary, .btn-primary:visited {
+.btn-primary, .btn-primary:visited .btn-primary:active {
     background-color: #FF9B71 !important;
     color: black; 
     border: 2px solid black;
@@ -7,13 +7,4 @@
 .btn-primary:hover{
     background-color: #FFFD82 !important;
     color: black !important;
-}
-.btn-lg {
-    --bs-btn-padding-y: 1.875rem;
-    --bs-btn-padding-x: 3.75rem;
-    --bs-btn-font-size: 4.5rem;
-}
-
-.text-dark {
-    font-weight: bold;
 }
