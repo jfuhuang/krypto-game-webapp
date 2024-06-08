@@ -1,0 +1,7 @@
+.interactive:hover {
+    opacity: 0.9;
+    box-shadow: 0px 0px 5.7px 6px rgba(255, 253, 130, 0.63);
+    transform: translateY(-15px); /* Makes the card move up */
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}

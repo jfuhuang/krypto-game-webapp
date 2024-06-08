@@ -7,7 +7,7 @@ import './GamePage.css';
 import {useState} from 'react';
 import {generateCards, generateDefaultCards} from 'utils/cardUtils.js';
 
-function GamePage() {
+export default function GamePage() {
     const [isRunning, setIsRunning] = useState(false);
     const [hundredths, setHundredths] = useState(0);
     const [numberMoves, setNumberMoves] = useState(0);
@@ -40,10 +40,8 @@ function GamePage() {
                     <p className="p-0 text-primary text-center display-4">Target</p>
                     <PlayingCard cardData = {targetCard} isInteractive={false} card={targetCard} cardDimensions ={{width: "8.4375rem", height: "12.4375rem"}}/>
                 </div>
-                    <GameCards cards={cards}/>
+                    <GameCards isRunning={isRunning} cards={cards}/>
             </div>
         </div>
     )
 }
-
-export default GamePage;
