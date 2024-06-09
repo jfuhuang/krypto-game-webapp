@@ -1,6 +1,7 @@
 // PlayingCard.jsx
 import React from 'react';
 import './PlayingCard.css';
+import PropTypes from 'prop-types';
 
 export default function PlayingCard({cardData, cardDimensions, isInteractive, isSelected, onSelect, onDeselect}) {
     const imagePath = `./images/cards/${cardData.name}.png`;
@@ -33,3 +34,16 @@ export default function PlayingCard({cardData, cardDimensions, isInteractive, is
         </div>
     );
 }
+
+PlayingCard.propTypes = {
+    cardData: PropTypes.object.isRequired,
+    cardDimensions: PropTypes.shape({
+        height: PropTypes.number,
+        width: PropTypes.number
+    }).isRequired,
+    isInteractive: PropTypes.bool,
+    isSelected: PropTypes.bool,
+    onSelect: PropTypes.func,
+    onDeselect: PropTypes.func
+};
+
