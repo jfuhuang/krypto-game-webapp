@@ -14,10 +14,20 @@ export default function PlayingCard({cardData, cardDimensions, isInteractive, is
         cursor: isInteractive ? 'pointer' : 'default',
     }
 
+    const select = () => {
+        if (isSelected) {
+            onDeselect(cardData.id);
+        } else {
+            onSelect(cardData.id);
+        }
+    }
+
     return (
         <div 
             className={`cardContainer container d-flex justify-content-center align-items-center ${isInteractive ? 'interactive' : ''} ${isSelected ? 'selected' : ''}`} 
             style={{...cardContainerStyle}}
+            draggable={isInteractive}
+            onClick={isInteractive ? select : null}
         >
             <img className="img-fluid" src={imagePath} alt={cardData.name} />
         </div>
