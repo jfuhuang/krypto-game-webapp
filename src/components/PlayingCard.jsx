@@ -1,20 +1,35 @@
-// Playing Card for Krypto Game.
-// This component is used to display a playing card in the game.
-function PlayingCard({card, isInteractive}) {
-    const imagePath = `./images/cards/Krypto Cards/${card.name}.png`;
+// PlayingCard.jsx
+import React from 'react';
+import './PlayingCard.css';
+
+export default function PlayingCard({cardData, cardDimensions, isInteractive, isSelected, onSelect, onDeselect}) {
+    const imagePath = `./images/cards/${cardData.name}.png`;
+
     const cardContainerStyle = {
-        height: card.height,
-        width: card.width,
+        height: cardDimensions.height,
+        width: cardDimensions.width,
         maxWidth: 200,
         maxHeight: 300,
         padding: 0,
         cursor: isInteractive ? 'pointer' : 'default',
     }
+
+    const select = () => {
+        if (isSelected) {
+            onDeselect(cardData.id);
+        } else {
+            onSelect(cardData.id);
+        }
+    }
+
     return (
-        <div className= {"cardContainer container"} style={cardContainerStyle}>
-            <img className="img-fluid " src={imagePath} alt={card.name} />
+        <div 
+            className={`cardContainer container d-flex justify-content-center align-items-center ${isInteractive ? 'interactive' : ''} ${isSelected ? 'selected' : ''}`} 
+            style={{...cardContainerStyle}}
+            draggable={isInteractive}
+            onClick={isInteractive ? select : null}
+        >
+            <img className="img-fluid" src={imagePath} alt={cardData.name} />
         </div>
     );
 }
-
-export default PlayingCard;

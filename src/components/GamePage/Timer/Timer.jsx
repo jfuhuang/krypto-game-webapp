@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import './Timer.css';
 export default function Timer({ isRunning, hundredths, setHundredths }) {
     useEffect(() => {
