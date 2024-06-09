@@ -13,6 +13,7 @@ export default function GamePage() {
     const [numberMoves, setNumberMoves] = useState(0);
     const [cards, setCards] = useState(generateDefaultCards());
     const [targetCard, setTargetCard] = useState({name: "unknown", value: 0});
+    const [moves, setMoves] = useState([]);
 
     const handleNewGame = () => {
         setIsRunning(true);
