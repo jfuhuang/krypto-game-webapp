@@ -1,0 +1,54 @@
+.btn-primary, .btn-primary:visited .btn-primary:active {
+    background-color: #FF9B71 !important;
+    color: black; 
+    border: 2px solid black;
+}
+.btn-primary:hover{
+    background-color: #FFFD82 !important;
+    color: black !important;
+    border: 2px solid black;
+}
+
+
+.circle {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    /* border-radius: 50%; */
+    margin: 0 auto;
+    overflow: hidden; /* Hide the parts of the buttons that are outside the circle */
+}
+
+.quadrant {
+    position: absolute;
+    width: 53%;
+    height: 53%;
+    padding: 0;
+    font-size: 2.5rem;
+}
+
+.top-left {
+    border-top-left-radius: 100%;
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    border-top-right-radius: 100%;
+    top: 0;
+    right: 0;
+    border-left: 2px solid black;
+}
+
+.bottom-left {
+    border-bottom-left-radius: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    border-bottom-right-radius: 100%;
+    bottom: 0;
+    right: 0;
+    border-top: 2px solid black;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PlayingCard from "components/PlayingCard";
 import './GameCards.css';
+import OperationSelector from './OperationSelector/OperationSelector';
 
 export default function GameCards({cards, isRunning, selectedCards, setSelectedCards}) {
 
@@ -32,6 +33,7 @@ export default function GameCards({cards, isRunning, selectedCards, setSelectedC
     });
 
     return (<div className="cardsContainer mt-5 d-flex container p-0">
+        <OperationSelector location={{top: 0, right: 10, bottom: 0, left: 0}} size={{width: "12rem", height: "12rem"}} onOperationSelect={() => {}}/>
         {playingCards}
     </div>)
 }

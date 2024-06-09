@@ -3,6 +3,7 @@ import PlayingCard from 'components/PlayingCard.jsx';
 import GameCards from 'components/GameCards.jsx';
 import NumberMoves from './NumberMoves/NumberMoves.jsx';
 import Timer from './Timer/Timer.jsx';
+import OperationSelector from 'components/OperationSelector/OperationSelector.jsx';
 import './GamePage.css';
 import {useState} from 'react';
 import {generateCards, generateDefaultCards} from 'utils/cardUtils.js';
@@ -15,9 +16,6 @@ export default function GamePage() {
     const [targetCard, setTargetCard] = useState({name: "unknown", value: 0});
     const [moves, setMoves] = useState([]);
     const [selectedCards, setSelectedCards] = useState([]);
-
-
-
     const handleNewGame = () => {
         setIsRunning(true);
         setHundredths(0);
@@ -26,6 +24,25 @@ export default function GamePage() {
         setTargetCard(generateCards(1)[0]);
         setSelectedCards([]);
     }
+
+    let operationSelector = null;
+    if (selectedCards.length === 2) {
+        const card1 = document.getElementById(selectedCards[0].id);
+        const card2 = document.getElementById(selectedCards[1].id);
+
+        const x1 = card1.offsetLeft + card1.offsetWidth / 2;
+        const y1 = card1.offsetTop + card1.offsetHeight / 2;
+        const x2 = card2.offsetLeft + card2.offsetWidth / 2;
+        const y2 = card2.offsetTop + card2.offsetHeight / 2;
+
+        const midX = (x1 + x2) / 2;
+        const midY = (y1 + y2) / 2 + 4 * 16; // 4rem lower, assuming 16px = 1rem
+
+        operationSelector = (
+            <OperationSelector style={{ position: 'absolute', left: midX, top: midY }} />
+        );
+    }
+
 
     return (
         <div className="GamePage container-fluid">
@@ -46,6 +63,7 @@ export default function GamePage() {
                     <PlayingCard cardData = {targetCard} isInteractive={false} card={targetCard} cardDimensions ={{width: "8.4375rem", height: "12.4375rem"}}/>
                 </div>
                     <GameCards isRunning={isRunning} cards={cards} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
+                    {operationSelector}
             </div>
         </div>
     )
