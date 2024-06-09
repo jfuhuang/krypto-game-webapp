@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import PlayingCard from "components/PlayingCard";
 import './GameCards.css';
 
-export default function GameCards({cards, isRunning}) {
-    const [selectedCards, setSelectedCards] = useState([]);
+export default function GameCards({cards, isRunning, selectedCards, setSelectedCards}) {
 
     const handleCardSelect = (cardId) => {
         if (selectedCards.length < 2) {
@@ -13,7 +12,6 @@ export default function GameCards({cards, isRunning}) {
             // Trigger the popup here
         }
     }
-    
 
     const handleCardDeselect = (cardId) => {
         setSelectedCards(selectedCards.filter(id => id !== cardId));

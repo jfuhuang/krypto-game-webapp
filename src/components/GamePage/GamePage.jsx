@@ -14,6 +14,9 @@ export default function GamePage() {
     const [cards, setCards] = useState(generateDefaultCards());
     const [targetCard, setTargetCard] = useState({name: "unknown", value: 0});
     const [moves, setMoves] = useState([]);
+    const [selectedCards, setSelectedCards] = useState([]);
+
+
 
     const handleNewGame = () => {
         setIsRunning(true);
@@ -21,6 +24,7 @@ export default function GamePage() {
         setNumberMoves(0);
         setCards(generateCards(5));
         setTargetCard(generateCards(1)[0]);
+        setSelectedCards([]);
     }
 
     return (
@@ -41,7 +45,7 @@ export default function GamePage() {
                     <p className="p-0 text-primary text-center display-4">Target</p>
                     <PlayingCard cardData = {targetCard} isInteractive={false} card={targetCard} cardDimensions ={{width: "8.4375rem", height: "12.4375rem"}}/>
                 </div>
-                    <GameCards isRunning={isRunning} cards={cards}/>
+                    <GameCards isRunning={isRunning} cards={cards} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
             </div>
         </div>
     )
