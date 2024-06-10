@@ -5,17 +5,20 @@ import NumberMoves from './NumberMoves/NumberMoves.jsx';
 import Timer from './Timer/Timer.jsx';
 import OperationSelector from 'components/OperationSelector/OperationSelector.jsx';
 import './GamePage.css';
-import {useState} from 'react';
-import {generateCards, generateDefaultCards} from 'utils/cardUtils.js';
+import { useState } from 'react';
+import { generateCards, generateDefaultCards } from 'utils/cardUtils.js';
+import React, { useEffect } from 'react';
 
 export default function GamePage() {
     const [isRunning, setIsRunning] = useState(false);
     const [hundredths, setHundredths] = useState(0);
     const [numberMoves, setNumberMoves] = useState(0);
     const [cards, setCards] = useState(generateDefaultCards());
-    const [targetCard, setTargetCard] = useState({name: "unknown", value: 0});
+    const [targetCard, setTargetCard] = useState({ name: "unknown", value: 0 });
     const [moves, setMoves] = useState([]);
     const [selectedCards, setSelectedCards] = useState([]);
+    const [operationSelectorPosition, setOperationSelectorPosition] = useState({ top: 0, left: 0 });
+
     const handleNewGame = () => {
         setIsRunning(true);
         setHundredths(0);
@@ -25,45 +28,58 @@ export default function GamePage() {
         setSelectedCards([]);
     }
 
-    let operationSelector = null;
-    if (selectedCards.length === 2) {
-        const card1 = document.getElementById(selectedCards[0].id);
-        const card2 = document.getElementById(selectedCards[1].id);
 
-        const x1 = card1.offsetLeft + card1.offsetWidth / 2;
-        const y1 = card1.offsetTop + card1.offsetHeight / 2;
-        const x2 = card2.offsetLeft + card2.offsetWidth / 2;
-        const y2 = card2.offsetTop + card2.offsetHeight / 2;
+    useEffect(() => {
+        if (selectedCards.length === 2) {
+            console.log(selectedCards[0], selectedCards[1]);
+            const card1 = document.getElementById(selectedCards[0]);
+            const rect1 = card1.getBoundingClientRect();
 
-        const midX = (x1 + x2) / 2;
-        const midY = (y1 + y2) / 2 + 4 * 16; // 4rem lower, assuming 16px = 1rem
+            const card2 = document.getElementById(selectedCards[1]);
+            const rect2 = card2.getBoundingClientRect();
 
-        operationSelector = (
-            <OperationSelector style={{ position: 'absolute', left: midX, top: midY }} />
-        );
-    }
+            const leftX1 = rect1.left;
+            const centerY1 = rect1.top + rect1.height / 2;
 
+            const rightX2 = rect2.right;
+            const centerY2 = rect2.top + rect2.height / 2;
+
+
+            const midX = (leftX1 + rightX2) / 2;
+            const midY = (centerY1);
+
+            console.log(midX, midY);
+            setOperationSelectorPosition({ top: midY, left: midX - 70});
+
+        }
+    }, [selectedCards]);
 
     return (
         <div className="GamePage container-fluid">
             <div className="TopContainer mt-4 align-items-center w-100 row">
                 <div className="col-4 d-flex justify-content-center align-items-center">
-                    <NumberMoves numberMoves={numberMoves}/>
+                    <NumberMoves numberMoves={numberMoves} />
                 </div>
                 <div className="col-4 d-flex justify-content-center align-items-center">
-                    <NewGameButton  handleNewGame={handleNewGame}/>
+                    <NewGameButton handleNewGame={handleNewGame} />
                 </div>
                 <div className="timerContainer col-4 d-flex justify-content-center align-items-center">
-                    <Timer isRunning={isRunning} hundredths={hundredths} setHundredths={setHundredths}/>
+                    <Timer isRunning={isRunning} hundredths={hundredths} setHundredths={setHundredths} />
                 </div>
             </div>
+            {selectedCards.length === 2 && (
+                <OperationSelector
+                    location={{top: operationSelectorPosition.top - 250, left: operationSelectorPosition.left}}
+                    onOperationSelect={() => { }}
+                />
+            )}
             <div className="PlayingCards m-0 w-100 flex-column align-items-center row">
-                <div className="TargetCard p-0 m-0 col row">
+                <div className="TargetCard p-0 m-0 col row align-items-center justify-content-center">
                     <p className="p-0 text-primary text-center display-4">Target</p>
-                    <PlayingCard cardData = {targetCard} isInteractive={false} card={targetCard} cardDimensions ={{width: "8.4375rem", height: "12.4375rem"}}/>
+                    <PlayingCard cardData={targetCard} isInteractive={false} card={targetCard} cardDimensions={{ width: "8.4375rem", height: "12.4375rem" }} />
                 </div>
-                    <GameCards isRunning={isRunning} cards={cards} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
-                    {operationSelector}
+                <GameCards isRunning={isRunning} cards={cards} selectedCards={selectedCards} setSelectedCards={setSelectedCards} />
+
             </div>
         </div>
     )

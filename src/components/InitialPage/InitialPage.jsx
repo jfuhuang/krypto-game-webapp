@@ -6,7 +6,7 @@ function InitialPage() {
     return(
     <div style={{color:"#FFFD82"}}className="initial-page d-flex flex-column justify-content-between align-items-center h-100">
         <Header />
-        <PlayButton />
+        <PlayButton  />
         <Footer />
     </div>
     );

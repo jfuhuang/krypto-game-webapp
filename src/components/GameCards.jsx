@@ -3,14 +3,11 @@ import PlayingCard from "components/PlayingCard";
 import './GameCards.css';
 import OperationSelector from './OperationSelector/OperationSelector';
 
-export default function GameCards({cards, isRunning, selectedCards, setSelectedCards}) {
+export default function GameCards({ cards, isRunning, selectedCards, setSelectedCards }) {
 
     const handleCardSelect = (cardId) => {
         if (selectedCards.length < 2) {
             setSelectedCards([...selectedCards, cardId]);
-        }
-        if (selectedCards.length === 2) {
-            // Trigger the popup here
         }
     }
 
@@ -20,11 +17,11 @@ export default function GameCards({cards, isRunning, selectedCards, setSelectedC
 
     const playingCards = cards.map(card => {
         return (
-            <PlayingCard 
-                key={card.id} 
-                cardData={card} 
-                cardDimensions ={{width: "8.4375rem", height: "12.4375rem"}} 
-                isInteractive={isRunning} 
+            <PlayingCard
+                key={card.id}
+                cardData={card}
+                cardDimensions={{ width: "8.4375rem", height: "12.4375rem" }}
+                isInteractive={isRunning}
                 isSelected={selectedCards.includes(card.id)}
                 onSelect={handleCardSelect}
                 onDeselect={handleCardDeselect}
@@ -32,8 +29,9 @@ export default function GameCards({cards, isRunning, selectedCards, setSelectedC
         );
     });
 
-    return (<div className="cardsContainer mt-5 d-flex container p-0">
-        <OperationSelector location={{top: 0, right: 10, bottom: 0, left: 0}} size={{width: "12rem", height: "12rem"}} onOperationSelect={() => {}}/>
-        {playingCards}
-    </div>)
+    return (
+        <div style={ {gap: '12rem'} }className="cardsContainer justify-content-center fixed-bottom d-flex container p-0">
+            {playingCards}
+        </div>
+    )
 }

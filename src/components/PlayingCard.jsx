@@ -9,8 +9,6 @@ export default function PlayingCard({cardData, cardDimensions, isInteractive, is
     const cardContainerStyle = {
         height: cardDimensions.height,
         width: cardDimensions.width,
-        maxWidth: 200,
-        maxHeight: 300,
         padding: 0,
         cursor: isInteractive ? 'pointer' : 'default',
     }
@@ -25,10 +23,12 @@ export default function PlayingCard({cardData, cardDimensions, isInteractive, is
 
     return (
         <div 
-            className={`cardContainer container d-flex justify-content-center align-items-center ${isInteractive ? 'interactive' : ''} ${isSelected ? 'selected' : ''}`} 
+            className={`cardContainer m-0 container d-flex justify-content-center align-items-center ${isInteractive ? 'interactive' : ''} ${isSelected ? 'selected' : ''}`} 
             style={{...cardContainerStyle}}
             draggable={isInteractive}
             onClick={isInteractive ? select : null}
+            id={cardData.id}
+
         >
             <img className="img-fluid" src={imagePath} alt={cardData.name} />
         </div>
@@ -38,8 +38,8 @@ export default function PlayingCard({cardData, cardDimensions, isInteractive, is
 PlayingCard.propTypes = {
     cardData: PropTypes.object.isRequired,
     cardDimensions: PropTypes.shape({
-        height: PropTypes.number,
-        width: PropTypes.number
+        height: PropTypes.string,
+        width: PropTypes.string
     }).isRequired,
     isInteractive: PropTypes.bool,
     isSelected: PropTypes.bool,

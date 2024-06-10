@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './OperationSelector.css'; // Import the CSS file
 
-export default function OperationSelector({location, size, onOperationSelect }) {
+export default function OperationSelector({location, size={height: "10rem", width: "10rem"}, onOperationSelect }) {
     const [selectedOperation, setSelectedOperation] = useState(null);
 
     const handleOperationClick = (operation) => {
@@ -12,7 +12,7 @@ export default function OperationSelector({location, size, onOperationSelect }) 
     };
 
     return (
-        <div style={{...location, ...size}} className="operation-selector circle text-center">
+        <div style={{...location, ...size}} className="operation-selector circle m-0 text-center">
             <button className="btn btn-primary quadrant top-left" onClick={() => handleOperationClick('add')}>+</button>
             <button className="btn btn-primary quadrant top-right" onClick={() => handleOperationClick('subtract')}>-</button>
             <button className="btn btn-primary quadrant bottom-left" onClick={() => handleOperationClick('multiply')}>X</button>
