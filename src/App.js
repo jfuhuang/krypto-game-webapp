@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import InitialPage from './components/InitialPage/InitialPage.jsx';
@@ -12,8 +12,10 @@ function App() {
     <div>
       <ToastContainer />
       <Router>
-        <Route path="/game" component={GamePage} />
-        <Route exact path="/" component={InitialPage} />
+        <Routes>
+          <Route path="/game" element={<GamePage />} />
+          <Route path="/" element={<InitialPage />} />
+        </Routes>
       </Router>
     </div>
   );
