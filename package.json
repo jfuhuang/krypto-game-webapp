@@ -21,7 +21,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -58,8 +60,10 @@
     "@storybook/react-webpack5": "^8.1.6",
     "@storybook/test": "^8.1.6",
     "eslint-plugin-storybook": "^0.8.0",
+    "gh-pages": "^6.1.1",
     "prop-types": "^15.8.1",
     "storybook": "^8.1.6",
     "webpack": "^5.91.0"
-  }
+  },
+  "homepage": "http://jfuhuang.github.io/krypto-game-webapp"
 }
