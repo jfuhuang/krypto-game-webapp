@@ -4,7 +4,7 @@ export function generateCardValues(numberOfCards) {
     const cardValues = [];
     for (let i = 0; i < numberOfCards; i++) {
         // Generate a random number for each card
-        const value = Math.floor(Math.random() * 14) + 1; // Random number between 1 and 14
+        const value = Math.floor(Math.random() * 13) + 1; // Random number between 1 and 14
         cardValues.push(value);
     }
     return cardValues;

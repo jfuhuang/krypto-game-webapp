@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import InitialPage from './components/InitialPage/InitialPage.jsx';
 import GamePage from './components/GamePage/GamePage.jsx';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -14,7 +17,10 @@ function App() {
   ))
 
   return (
-    <RouterProvider router={ router } />
+    <div>
+      <ToastContainer />
+      <RouterProvider router={router} />
+    </div>
   );
 }
 
