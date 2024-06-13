@@ -4,8 +4,8 @@ import './PlayingCard.css';
 import PropTypes from 'prop-types';
 
 export default function PlayingCard({cardData, cardDimensions, isInteractive, isSelected, onSelect, onDeselect}) {
-    const imagePath = `./images/cards/${cardData.name}.png`;
-
+    const imagePath = `/images/Cards/${cardData.name}.png`;
+    
     const cardContainerStyle = {
         height: cardDimensions.height,
         width: cardDimensions.width,

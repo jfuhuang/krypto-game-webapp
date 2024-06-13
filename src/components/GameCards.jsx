@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
 import PlayingCard from "components/PlayingCard";
 import './GameCards.css';
-import OperationSelector from './OperationSelector/OperationSelector';
 
 export default function GameCards({ cards, isRunning, selectedCards, setSelectedCards }) {
 
