@@ -10,13 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div>
-      <ToastContainer />
-      <Router>
-        <Routes>
-          <Route path="/game" element={<GamePage />} />
-          <Route path="/" element={<InitialPage />} />
-        </Routes>
-      </Router>
+
+      <InitialPage />
     </div>
   );
 }
