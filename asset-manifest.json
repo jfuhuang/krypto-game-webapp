@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/krypto-game-webapp/static/css/main.50933269.css",
-    "main.js": "/krypto-game-webapp/static/js/main.f97036c7.js",
+    "main.css": "/krypto-game-webapp/static/css/main.992a450a.css",
+    "main.js": "/krypto-game-webapp/static/js/main.b31fe686.js",
     "index.html": "/krypto-game-webapp/index.html",
-    "main.50933269.css.map": "/krypto-game-webapp/static/css/main.50933269.css.map",
-    "main.f97036c7.js.map": "/krypto-game-webapp/static/js/main.f97036c7.js.map"
+    "main.992a450a.css.map": "/krypto-game-webapp/static/css/main.992a450a.css.map",
+    "main.b31fe686.js.map": "/krypto-game-webapp/static/js/main.b31fe686.js.map"
   },
   "entrypoints": [
-    "static/css/main.50933269.css",
-    "static/js/main.f97036c7.js"
+    "static/css/main.992a450a.css",
+    "static/js/main.b31fe686.js"
   ]
 }
