@@ -4,7 +4,7 @@ import './PlayingCard.css';
 import PropTypes from 'prop-types';
 
 export default function PlayingCard({cardData, cardDimensions, isInteractive, isSelected, onSelect, onDeselect}) {
-    const imagePath = `./images/Cards/${cardData.name}.png`;
+    const imagePath = `/images/Cards/${cardData.name}.png`;
     
     const cardContainerStyle = {
         height: cardDimensions.height,
@@ -30,7 +30,7 @@ export default function PlayingCard({cardData, cardDimensions, isInteractive, is
             id={cardData.id}
 
         >
-            <img className="img-fluid" src={imagePath} alt={cardData.name} />
+            <img className="img-fluid" src={process.env.PUBLIC_URL + '/' + imagePath} alt={cardData.name} />
         </div>
     );
 }
